@@ -1,0 +1,48 @@
+#body{
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(57, 57, 57);
+}
+.card-container{
+  background-color: lightcoral;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  min-width: 300px;
+}
+.card-container .quotes{
+  min-height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.buttons button{
+  width: 50%;
+  padding: 15px 0;
+  border: none;
+  font-size: 20px;
+  background-color: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#rotate{
+  animation: rotate .7s forwards infinite;
+}
+@keyframes rotate {
+  100%{
+    transform: rotate(360deg);
+  }
+}
