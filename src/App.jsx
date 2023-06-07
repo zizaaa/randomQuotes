@@ -36,8 +36,8 @@ function App() {
   return (
         <div className="card-container">
             <div className="quotes">
-              <h1>{`" ${quotes.quote} "`}</h1>
-              <h4>{`-${quotes.author}`}</h4>
+              <h1>{`" ${quotes.quote === undefined ? "Click the button, senpai!" : quotes.quote} "`}</h1>
+              <h4>{`-${quotes.author === undefined ? "" : quotes.author}`}</h4>
             </div>
             <div className="buttons">
                 <button className="generateBtn" onClick={generateQuotes}><span><i className="fa-solid fa-rotate-right" id={isLoading ? "rotate" : ""}></i></span> Generate</button>
