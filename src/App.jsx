@@ -38,7 +38,7 @@ function App() {
       const handleCopy = () => {
         setIsCopied(true)
 
-        const textToCopy = quotes.quote;
+        const textToCopy = `quote: ${quotes.quote} \n author: ${quotes.author}`;
         copy(textToCopy);
 
         setTimeout(() => {
@@ -52,7 +52,7 @@ function App() {
               <h4>{`-${quotes.author === undefined ? "" : quotes.author}`}</h4>
             </div>
             <div className="buttons">
-                <button className="generateBtn" onClick={generateQuotes}><span><i className="fa-solid fa-rotate-right" id={isLoading ? "rotate" : ""}></i></span> Generate</button>
+                <button className="generateBtn" disabled={isLoading === true} onClick={generateQuotes}><span><i className="fa-solid fa-rotate-right" id={isLoading ? "rotate" : ""}></i></span> Generate</button>
                 <button className="copyBtn" disabled={quotes.length === 0} onClick={handleCopy}><span><i className="fa-solid fa-copy"></i></span>{isCopied ? "Copied" : "Copy"}</button>
             </div>
         </div>
