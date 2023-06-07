@@ -1,9 +1,11 @@
 import { useState,useEffect } from "react";
+import copy from 'clipboard-copy';
 
 function App() {
   const [data, setData] = useState([]);
   const [quotes, setQuotes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
       const quotes_url = "https://dummyjson.com/quotes";
 
       useEffect(()=>{
@@ -33,15 +35,25 @@ function App() {
         },2000)
       }
       
+      const handleCopy = () => {
+        setIsCopied(true)
+
+        const textToCopy = quotes.quote;
+        copy(textToCopy);
+
+        setTimeout(() => {
+          setIsCopied(false)
+        },1000);
+      };
   return (
-        <div className="card-container">
+        <div className="container card-container">
             <div className="quotes">
               <h1>{`" ${quotes.quote === undefined ? "Click the button, senpai!" : quotes.quote} "`}</h1>
               <h4>{`-${quotes.author === undefined ? "" : quotes.author}`}</h4>
             </div>
             <div className="buttons">
                 <button className="generateBtn" onClick={generateQuotes}><span><i className="fa-solid fa-rotate-right" id={isLoading ? "rotate" : ""}></i></span> Generate</button>
-                <button className="copyBtn"><span><i className="fa-solid fa-copy"></i></span> Copy</button>
+                <button className="copyBtn" disabled={quotes.length === 0} onClick={handleCopy}><span><i className="fa-solid fa-copy"></i></span>{isCopied ? "Copied" : "Copy"}</button>
             </div>
         </div>
   )
