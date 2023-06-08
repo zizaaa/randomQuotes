@@ -13,9 +13,7 @@ function App() {
             try{
               const fetchData = await fetch(quotes_url);
               const jsonData = await fetchData.json();
-              const data = await jsonData;
-              
-              setData(data);
+              setData(jsonData);
             
             }catch(err){
               console.error(err)
