@@ -48,8 +48,8 @@ function App() {
   return (
         <div className="container card-container">
             <div className="quotes">
-              <h1>{`" ${quotes.quote === undefined ? "Click the button, senpai!" : quotes.quote} "`}</h1>
-              <h4>{`-${quotes.author === undefined ? "" : quotes.author}`}</h4>
+              <h1> <i className="fa-solid fa-quote-left"></i> {`${quotes.quote === undefined ? "Click the button, senpai!" : quotes.quote}`} <i className="fa-solid fa-quote-right"></i></h1>
+              <h4>{`${quotes.author === undefined ? "" : `-${quotes.author}`}`}</h4>
             </div>
             <div className="buttons">
                 <button className="generateBtn" disabled={isLoading === true} onClick={generateQuotes}><span><i className="fa-solid fa-rotate-right" id={isLoading ? "rotate" : ""}></i></span> Generate</button>
